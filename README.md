@@ -1,22 +1,41 @@
 # Using-Machine-Learning-to-Predict-Alzheimer-s-Disease
 
-#### The Idea :
-Alzheimer's is a brain disease that slowly gets worse over time. It causes memory loss, confusion, and trouble with everyday thinking. It's the biggest cause of dementia, and it affects a large number of older adults (roughly 11% of people aged 65+ in the US). Once someone starts showing symptoms, the damage to the brain can't be undone — which is why catching it early really matters.
+#### Overview
 
-Right now, there isn't a simple, widely-used way to screen people for Alzheimer's before it fully develops. This project explores whether machine learning can help fill that gap by looking at MRI brain scans and predicting whether a person is likely to develop the disease.
+This project uses a Convolutional Neural Network (CNN) to classify brain MRI scans into different stages of Alzheimer's disease. The goal is to support early detection by automatically identifying how advanced the disease is from an MRI image.
 
+#### Dataset
 
-#### Dataset :
-We used the OASIS dataset (Open Access Series of Imaging Studies), which is a public collection of brain MRI scans, to train and test our models.
+The model is trained on the Alzheimer MRI Preprocessed Dataset from Kaggle, containing 6,400 MRI images resized to 128 x 128 pixels, split across four classes:
 
-#### Models : 
-To find the best way to make these predictions, we experimented with several different machine learning approaches:
+Non Demented (3,200 images)
+Very Mild Demented (2,240 images)
+Mild Demented (896 images)
+Moderate Demented (64 images)
 
-K-Nearest Neighbors (KNN),
-Ensemble Methods,
-Multilayer Perceptron (MLP),
-Convolutional Neural Network (CNN),
-Support Vector Machine (SVM)
+The dataset is split into train, validation, and test sets (80/10/10).
 
-#### Goal :
-Our main aim was simple: get the prediction accuracy as high as possible. Our best-performing model reached an accuracy of 98.07%.
+#### Technologies Used
+TensorFlow / Keras – building and training the CNN
+NumPy – numerical operations
+Matplotlib – visualizing training curves and results
+Scikit-learn – evaluation metrics and confusion matrix
+#### Model Architecture
+
+A custom CNN built from scratch with:
+
+Three convolutional blocks (16 → 32 → 64 filters) with ReLU activation and max-pooling
+Dropout layers to reduce overfitting
+Fully connected dense layers ending in a 4-class softmax output
+
+The model was trained for up to 50 epochs with early stopping and checkpointing based on validation accuracy.
+
+#### Results
+Metric	Score
+Test Loss	0.035
+Test Accuracy	99.1%
+Test AUC	0.999
+Test Precision	0.991
+Test Recall	0.991
+
+A confusion matrix was also generated to evaluate how well the model distinguishes between the four disease stages.
