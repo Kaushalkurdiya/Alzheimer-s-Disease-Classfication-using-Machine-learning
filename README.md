@@ -12,12 +12,11 @@ We used the OASIS dataset (Open Access Series of Imaging Studies), which is a pu
 #### Models : 
 To find the best way to make these predictions, we experimented with several different machine learning approaches:
 
-K-Nearest Neighbors (KNN)
-Ensemble Methods
-Multilayer Perceptron (MLP)
-Convolutional Neural Network (CNN)
+K-Nearest Neighbors (KNN),
+Ensemble Methods,
+Multilayer Perceptron (MLP),
+Convolutional Neural Network (CNN),
 Support Vector Machine (SVM)
-Grad-CAM (used to visualize which parts of the brain scan the model is focusing on)
 
 #### Goal :
 Our main aim was simple: get the prediction accuracy as high as possible. Our best-performing model reached an accuracy of 98.07%.
