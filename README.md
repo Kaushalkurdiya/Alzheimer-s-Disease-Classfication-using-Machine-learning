@@ -1,6 +1,23 @@
 # Using-Machine-Learning-to-Predict-Alzheimer-s-Disease
 
-#### Abstract
-Alzheimer’s disease is a progressive brain disorder that leads to memory loss, poor judgment, confusion, and fear. It is the leading cause of dementia, a terminal disease affecting about 11% of Americans 65 years and older. Once a patient develops the disease, there is no repairing the damage done. There are currently no early screening systems in place to detect the development of Alzheimer’s. Machine learning techniques can be used to classify brain scans according to their level of dementia. In order to make predictions, we are using the Open Access Series of Imaging Studies (OASIS) dataset. In this project we use K-Nearest Neighbors, Ensemble Methods, Multilayer Perceptron, Convolutional Neural Network, Support Vector Machine, and Class Activation Mapping to predict if a brain scan image will later develop the disease. Our main goal is to achieve the highest possible prediction accuracy. In the future, this methodology could be used in tandem with medical professional expertise for early intervention, research advancement, and clinical trial selection. Our best model achieved an accuracy of 98.07%. 
+###The Idea :
+Alzheimer's is a brain disease that slowly gets worse over time. It causes memory loss, confusion, and trouble with everyday thinking. It's the biggest cause of dementia, and it affects a large number of older adults (roughly 11% of people aged 65+ in the US). Once someone starts showing symptoms, the damage to the brain can't be undone — which is why catching it early really matters.
 
-To read the full article wisit https://medium.com/@conoly.cravens/alzheimers-disease-prediction-using-mri-scans-414652137625. 
+Right now, there isn't a simple, widely-used way to screen people for Alzheimer's before it fully develops. This project explores whether machine learning can help fill that gap by looking at MRI brain scans and predicting whether a person is likely to develop the disease.
+
+
+Dataset :
+We used the OASIS dataset (Open Access Series of Imaging Studies), which is a public collection of brain MRI scans, to train and test our models.
+
+Models : 
+To find the best way to make these predictions, we experimented with several different machine learning approaches:
+
+K-Nearest Neighbors (KNN)
+Ensemble Methods
+Multilayer Perceptron (MLP)
+Convolutional Neural Network (CNN)
+Support Vector Machine (SVM)
+Grad-CAM (used to visualize which parts of the brain scan the model is focusing on)
+
+Goal :
+Our main aim was simple: get the prediction accuracy as high as possible. Our best-performing model reached an accuracy of 98.07%.
