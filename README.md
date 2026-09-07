@@ -19,8 +19,7 @@ The dataset consists of MRI images sourced from various websites, split into **T
 - `ModerateDemented`
 - `NonDemented`
 - `VeryMildDemented`
-> **Note:** The dataset path is hardcoded to a local directory (`Alzheimers_Complete_Dataset`). Update the `DATADIR` variable to point to your local copy of the dataset before running.
- 
+
 ## Tech Stack
  
 - **Python** 3.9
