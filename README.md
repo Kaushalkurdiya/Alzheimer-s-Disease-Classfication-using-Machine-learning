@@ -1,41 +1,77 @@
-# Using-Machine-Learning-to-Predict-Alzheimer-s-Disease
+# Alzheimer's MRI Image Classification CNN
+ 
+A Convolutional Neural Network (CNN) built with TensorFlow/Keras to classify brain MRI images into four stages of Alzheimer's Disease severity.
+ 
+## Overview
+ 
+This project uses deep learning to aid in the early diagnosis of Alzheimer's Disease by classifying MRI brain scans into one of four categories:
+ 
+1. **Non Demented**
+2. **Very Mild Demented**
+3. **Mild Demented**
+4. **Moderate Demented**
+## Dataset
+ 
+The dataset consists of MRI images sourced from various websites, split into **Training** and **Testing** sets, containing approximately 5,000 images total across the four severity classes.
+ 
+**Class labels:**
+- `MildDemented`
+- `ModerateDemented`
+- `NonDemented`
+- `VeryMildDemented`
+> **Note:** The dataset path is hardcoded to a local directory (`Alzheimers_Complete_Dataset`). Update the `DATADIR` variable to point to your local copy of the dataset before running.
+ 
+## Tech Stack
+ 
+- **Python** 3.9
+- **TensorFlow / Keras** — model building and training
+- **OpenCV (cv2)** — image loading and preprocessing
+- **NumPy / Pandas** — data handling
+- **Matplotlib / Seaborn** — visualization
+- **scikit-learn** — train/test split, evaluation metrics
+## Pipeline
+ 
+1. **Data Loading** — Images loaded in grayscale from the four category folders.
+2. **Preprocessing**
+   - Images resized to `100x100` pixels.
+   - Pixel values normalized (divided by 255).
+3. **Dataset Preparation**
+   - Images and labels combined and shuffled.
+   - Split into training (75%) and testing (25%) sets using `train_test_split`.
+4. **Model Architecture** (Sequential CNN):
+   - `Conv2D(64, 3x3)` + ReLU + `MaxPooling2D`
+   - `Conv2D(64, 3x3)` + ReLU + `MaxPooling2D`
+   - `Flatten`
+   - `Dense(64)`
+   - `Dropout(0.5)`
+   - `Dense(128, activation='relu')`
+   - `Dense(4, activation='softmax')` (output layer)
+5. **Compilation**
+   - Optimizer: `adam`
+   - Loss: `SparseCategoricalCrossentropy`
+   - Metric: `accuracy`
+6. **Training**
+   - Batch size: `32`
+   - Epochs: `10`
+   - Validation split: `10%`
+7. **Evaluation**
+   - Accuracy/loss curves
+   - Confusion matrix
+   - Classification report (precision, recall, F1-score)
+## Results
+ 
+| Metric | Score |
+|---|---|
+| Accuracy | 97.76% |
+| Validation Accuracy | 94.14% |
+| Loss | 0.06 |
+| Validation Loss | 0.19 |
+| F1 Score | 95.39% |
+| Precision | 95.45% |
+| Recall | 95.38% |
+ 
+The model achieves strong classification performance across all four classes, with particularly high precision for `ModerateDemented` (100%) and `NonDemented` (97%) categories.
+ 
 
-#### Overview
+ 
 
-This project uses a Convolutional Neural Network (CNN) to classify brain MRI scans into different stages of Alzheimer's disease. The goal is to support early detection by automatically identifying how advanced the disease is from an MRI image.
-
-#### Dataset
-
-The model is trained on the Alzheimer MRI Preprocessed Dataset from Kaggle, containing 6,400 MRI images resized to 128 x 128 pixels, split across four classes:
-
-Non Demented (3,200 images)
-Very Mild Demented (2,240 images)
-Mild Demented (896 images)
-Moderate Demented (64 images)
-
-The dataset is split into train, validation, and test sets (80/10/10).
-
-#### Technologies Used
-TensorFlow / Keras – building and training the CNN
-NumPy – numerical operations
-Matplotlib – visualizing training curves and results
-Scikit-learn – evaluation metrics and confusion matrix
-#### Model Architecture
-
-A custom CNN built from scratch with:
-
-Three convolutional blocks (16 → 32 → 64 filters) with ReLU activation and max-pooling
-Dropout layers to reduce overfitting
-Fully connected dense layers ending in a 4-class softmax output
-
-The model was trained for up to 50 epochs with early stopping and checkpointing based on validation accuracy.
-
-#### Results
-Metric	Score
-Test Loss	0.035
-Test Accuracy	99.1%
-Test AUC	0.999
-Test Precision	0.991
-Test Recall	0.991
-
-A confusion matrix was also generated to evaluate how well the model distinguishes between the four disease stages.
